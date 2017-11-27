@@ -42,7 +42,16 @@ The following explained how to use nexmon-arc and compile our hello world applic
   UC: INITIALIZED
   ```
 
-  The `console_fw` and `console_uc` debugfs interfaces are custom extensions of the wil6210 driver that allow to read the output buffer from the firmware. This function is integrated in our [lede-ad7200](https://github.com/seemoo-lab/lede-ad7200) image for TP-Link Talon AD7200 devices and provided by [this](https://github.com/seemoo-lab/lede-ad7200/blob/release/overlay/seemoo/mac80211/patches/0002-adding-support-to-read-console-output.patch) patch. 
+  The `console_fw` and `console_uc` debugfs interfaces are custom extensions of the wil6210 driver that allow to read the output buffer from the firmware. This function is integrated in our [lede-ad7200](https://github.com/seemoo-lab/lede-ad7200) image for TP-Link Talon AD7200 devices and provided by [this](https://github.com/seemoo-lab/lede-ad7200/blob/release/overlay/seemoo/mac80211/patches/0002-adding-support-to-read-console-output.patch) patch.
+  
+  If your patch failed and trying to read `console_fw` or `console_uc`, you will get this message:
+  
+  ```bash
+  root@TALON:~# cat /sys/kernel/debug/ieee80211/phy2/wil6210/console_fw
+  cat: can't open '/sys/kernel/debug/ieee80211/phy2/wil6210/console_fw': Operation not permitted
+  root@TALON:~# cat /sys/kernel/debug/ieee80211/phy2/wil6210/console_uc
+  cat: can't open '/sys/kernel/debug/ieee80211/phy2/wil6210/console_uc': Operation not permitted
+  ```
 
 ### Write your own patch
   To write your own patches, check the example files in *patches/wil6210/4-1-0_55/hello_world/src* and consider the original [Nexmon](https://nexmon.org) project for further documentation on the patching process.
