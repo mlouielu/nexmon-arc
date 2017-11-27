@@ -36,9 +36,9 @@ The following explained how to use nexmon-arc and compile our hello world applic
 * You should be able to get the following results by reading the `console_fw` and `console_uc` files in the debugfs:
 
   ```bash
-  root@TALON1:~# cat /sys/kernel/debug/ieee80211/phy2/wil6210/console_dump_fw 
+  root@TALON1:~# cat /sys/kernel/debug/ieee80211/phy2/wil6210/console_fw 
   FW: INITIALIZED
-  root@TALON1:~# cat /sys/kernel/debug/ieee80211/phy2/wil6210/console_dump_uc 
+  root@TALON1:~# cat /sys/kernel/debug/ieee80211/phy2/wil6210/console_uc 
   UC: INITIALIZED
   ```
 
